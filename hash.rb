@@ -16,6 +16,8 @@ h['five'] = 5
 
 h['one'] = 1.0
 
+h.delete('one')  # What does this return? Does it change the hash?
+
 # Some methods
 # ------------
 
