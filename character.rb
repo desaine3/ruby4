@@ -21,7 +21,7 @@ end
 #
 def properties(hash)
 	# TODO iterate over the hash, printing out keys and values
-
+	
 	return nil
 end	
 
@@ -32,7 +32,6 @@ end
 def only_strings(hash)
 	h = {}	
 	# TODO iterate over hash and put the appropiate values into h
-	
 	return h
 end
 
