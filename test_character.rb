@@ -3,7 +3,7 @@ require 'minitest/spec'
 require 'minitest/autorun'
 
 # load in hash_exercises.rb
-require_relative 'hash_exercises'
+require_relative 'character'
 
 bart = {'name'=>'Bart', 'surname'=>'Simpson', 'age'=> 10, 'catchphrase' => 'Eat my shorts'}
 homer = {'name'=>'Homer', 'surname'=>'Simpson', 'children' => 3, 'age'=> 38, 'catchphrase' => 'D\'oh'}
@@ -43,6 +43,7 @@ describe 'properties' do
 		assert_output(homer_props) { properties(homer) }
 	end
 end
+
 
 describe 'only_strings' do
 	it "works for Bart" do
