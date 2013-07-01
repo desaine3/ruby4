@@ -9,7 +9,7 @@ require_relative 'i_have_a_dream'
 # do the test
 describe 'frequencies' do
 	it "counts elements in an array" do
-		assert_equal({'a'=>1, 'b'=>2}, frequencies(['a b a'])
+		assert_equal({'a'=>1, 'b'=>2}, frequencies(['a b a']))
 	end
 end
 
