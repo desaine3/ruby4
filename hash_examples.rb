@@ -33,7 +33,6 @@ h.has_key?('one')
 
 h.has_value?(7)
 
-h.invert
 
 # Iterating
 # ---------
@@ -53,32 +52,22 @@ h1.merge!(h2)
 h1 	  # what is h1 now?
 
 
-# Other ways of creating hashes
-# -----------------------------
+# Using a hash for counting
+# -------------------------
 
-h = Hash.new('default')
+# start with an empty hash
+h = {}
 
-h[1]
-h
+['a', 'b', 'a', 'a'].each do |letter|
+    if h.has_key?(letter)
+        # if the letter is already in the hash, increase
+        # its count by 1
+        h[letter] += 1
+    else # letter isn't in the hash
+        # so put it in and set the count to 1
+        h[letter] = 1
+    end
+end
 
-h = Hash['a', 1, 'b', 2]
-
-h = Hash[['a',1], ['b', 2]]
-
-# Converting to arrays (and back?)
-# -------------------------------
-
-h = {'a'=>1, 'b'=>2, 'c'=>3}
-
-h.to_a
-
-# How could you convert the result back into a hash?
-
-# Challenge:
-keys = ['one', 'two', 'three']
-values = [1, 2, 3]
-# Can you combine these two arrays into a Hash?
-# (you might want to take another look at ruby3/array_ops.rb)
-
-
+h   # what is h now?
 
