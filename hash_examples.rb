@@ -39,6 +39,8 @@ h.has_value?(7)
 
 h.each {|key, value| puts "#{key}: #{value}"}
 
+h.select {|key, value| value.even? }
+
 
 # Combining
 # ---------

@@ -3,24 +3,20 @@ require 'minitest/spec'
 require 'minitest/autorun'
 
 # load in i_have_a_dream.rb
-require_relative 'i_have_a_dream'
+require 'i_have_a_dream'
 
 
 # do the test
 describe 'frequencies' do
     it "counts elements in an array" do
-        assert_equal({'a'=>1, 'b'=>2}, frequencies(['a b a']))
+        assert_equal({'a'=>1, 'b'=>2}, frequencies('a b a'))
     end
 end
 
-describe 'dream_frequency' do
-    it "works for 50 " do
-        output = <<EOF
-to: 50
-the: 103
-of: 99
-and: 54
-EOF
-        assert_output(output) { dream_frequency(50)}
+describe 'remove_stopwords' do
+    it "removes stopwords from the hash" do
+
+        assert_equal({"cat" => 1, "dog" => 1},remove_stopwords({"a"=>2, "cat"=> 1, "and"=>1, "dog"=>1}))
     end
+
 end

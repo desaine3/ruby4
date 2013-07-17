@@ -3,8 +3,9 @@ require 'json'
 
 
 # Read the text in from the file and remove the capitals and punctuation
-def read_text
+def text
     File.open('i_have_a_dream.txt', 'r') do |f|
+        puts "Opening 'i_have_a_dream.txt'..."
         raw_text = f.read  # read the contents of the file
         text = raw_text.downcase  # remove capitals
 
@@ -18,7 +19,6 @@ def read_text
     end
 end
 
-stopWords = "i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall".split("|")
 
 # Reads in a string of (unpunctuated, downcased) text
 # and returns a hash of frequencies e.g.
@@ -26,39 +26,45 @@ stopWords = "i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|you
 #  frequencies("a cat and a dog") #=> {"a"=>2, "cat"=> 1, "and"=>1, "dog"=>1}
 #
 def frequencies(text)
+    puts "Counting words..."
     ## TODO write this function
-    stopWords = "i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall".split("|")
 
-    h = Hash.new(0)
-    text.split.each do |w|
-        h[w] += 1 unless stopWords.include?(w)
-    end
-    return h
-end
-
-# Display all the words in "I have a dream" that occur more than n times
-# along with their frequencies e.g.
-#
-#   dream_frequency(50)
-#   to: 50                      -
-#   the: 103                     | it should display these
-#   of: 99                       | lines (in any order)
-#   and: 54                     -
-#   #=> nil                         .. and return nil
-#
-def dream_frequency(n)
-    ## TODO write this function
+    return {'everyone'=>15, 'code first girls'=>30, 'loves'=>20, 'ruby'=>40}
 end
 
 
-def visualise(data = {a: 1, b: 2, c: 4})
+# stop_words are common filling words that should be removed
+# before doing word visualisations
+def stop_words
+    # Words taken from Jonathan Feinberg's cue.language (via jasondavies.com), see lib/cue.language/license.txt.
+    "i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|im|youre|hes|shes|its|were|theyre|ive|youve|weve|theyve|id|youd|hed|shed|wed|theyd|ill|youll|hell|shell|well|theyll|isnt|arent|wasnt|werent|hasnt|havent|hadnt|doesnt|dont|didnt|wont|wouldnt|shant|shouldnt|cant|cannot|couldnt|mustnt|lets|thats|whos|whats|heres|theres|whens|wheres|whys|hows|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall"
+end
+
+# Takes in a hash of words and requencies and removes the
+# stop_words above
+#
+#   e.g. remove_stopwords({"a"=>2, "cat"=> 1, "and"=>1, "dog"=>1})
+#         #=> {"cat" => 1, "dog" => 1}
+#
+def remove_stopwords(hash)
+    puts "Filtering out common words..."
+    # TODO filter the frequencies based on
+    # the stop_words
+    return hash
+end
+
+def write_html(data)
+    puts "Creating html..."
     words_with_frequencies = data.to_a
     erb = ERB.new(File.read('index.html.erb'))
     File.open('index.html', 'w') do |f|
         f.write(erb.result(binding))
     end
+    puts "Output written to index.html. Enjoy!"
 end
 
-def make_vis
-    visualise(frequencies(read_text))
-end
+
+# when we call the file from the command line
+# this is the line that will run.
+write_html(remove_stopwords(frequencies(text)))
+

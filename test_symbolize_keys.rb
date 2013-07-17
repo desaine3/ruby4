@@ -3,7 +3,7 @@ require 'minitest/spec'
 require 'minitest/autorun'
 
 # load in symbolize_keys.rb
-require_relative 'symbolize_keys'
+require 'symbolize_keys'
 
 
 # do the test
