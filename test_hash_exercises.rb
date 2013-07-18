@@ -3,12 +3,12 @@ require 'minitest/spec'
 require 'minitest/autorun'
 
 # load in hash_exercises.rb
-require 'hash_exercises'
+require_relative 'hash_exercises'
 
 describe 'add_a_banana' do 
     it "adds a banana" do
-        assert_equal({'a'=>2, 'fruit'=>'banana'}, add_a_banana({'a'=>2})
-        assert_equal({'fruit'=>'banana'}, add_a_banana({})
+        assert_equal({'a'=>2, 'fruit'=>'banana'}, add_a_banana({'a'=>2}))
+        assert_equal({'fruit'=>'banana'}, add_a_banana({}))
     end
 end
 
@@ -73,11 +73,11 @@ describe 'tell_story' do
     end
     it 'tells a custom story' do
         assert_equal "It was a cold and foggy morning ...",
-            tell_story({'adj1': 'cold', 'adj2': 'foggy', 'time_of_day': 'morning'})
+            tell_story({'adj1'=> 'cold', 'adj2'=>'foggy', 'time_of_day'=>'morning'})
     end
     it 'tells a semi-custom story' do
         assert_equal "It was a dark and hot night ...",
-            tell_story({'adj2': 'hot'})
+            tell_story({'adj2'=>'hot'})
     end
 
 

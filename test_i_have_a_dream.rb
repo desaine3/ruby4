@@ -3,7 +3,7 @@ require 'minitest/spec'
 require 'minitest/autorun'
 
 # load in i_have_a_dream.rb
-require 'i_have_a_dream'
+require_relative 'i_have_a_dream'
 
 
 # do the test
