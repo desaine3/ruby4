@@ -73,3 +73,15 @@ end
 
 h   # what is h now?
 
+# A slicker way to count (extension)
+# ----------------------------------
+
+# A slightly slicker way of doing this is
+# using a hash with a default value:
+
+h = Hash.new(0) # 0 is the default value that is 
+                # returned when the key is missing
+
+['a', 'b', 'a', 'a'].each do |letter|
+    h[letter] += 1
+end

@@ -63,7 +63,8 @@ def pretty_print(hash)
 end
 
 
-# Maxwell's serves only jaegerbombs and becks
+# Maxwell's serves only jaegerbombs and becks.
+# The jaegerbombs especially are a rip-off.
 # order_price calculates the total cost of an
 # order e.g.
 #
