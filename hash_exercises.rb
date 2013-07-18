@@ -107,5 +107,5 @@ end
 
 # Leave story_beginning alone
 def story_beginning(opts)
-    "It was a #{hash['adj1']} and #{hash['adj2']} #{hash['time_of_day']} ..."
+    "It was a #{opts['adj1']} and #{opts['adj2']} #{opts['time_of_day']} ..."
 end
