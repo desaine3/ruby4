@@ -55,7 +55,7 @@ end
 describe 'order_price' do
     it "calculates totals" do
         assert_equal 5.5, order_price({'jaegerbomb'=>1})
-        assert_equal 16, order_price({'jaegerbomb'=>2, 'becks'=>2})
+        assert_equal 18, order_price({'jaegerbomb'=>2, 'becks'=>2})
     end
 end
 
