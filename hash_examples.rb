@@ -50,7 +50,6 @@ h2 = {'b'=>3, 'c'=>4}
 
 h1.merge(h2)
 h1    # what has this done to h1?
-h1.merge!(h2)
 h1 	  # what is h1 now?
 
 

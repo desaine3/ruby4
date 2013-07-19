@@ -4,7 +4,8 @@
 #   add_a_banana({'a'=>1}) #=> {'a'=> 1, 'fruit'=> 'banana'}
 #
 def add_a_banana(input_hash)
-    # TODO
+    input_hash['fruit'] = 'banana'
+    input_hash
 end
 
 # no_oranges removes the key 'orange' (and its
@@ -16,7 +17,10 @@ end
 #  no_oranges({'pear'=>'ripe', 'apple'=>'sour'}) #=> {'pear'=>'ripe', 'apple'=>'sour'}
 #
 def no_oranges(input_hash)
-    # TODO
+    if input_hash.has_key?('orange')
+        input_hash.delete('orange')
+    end
+    input_hash
 end
 
 
@@ -29,7 +33,11 @@ end
 #  duck_or_moose({'dog'=> 'snoopy'}) #=> 'moose'
 #
 def duck_or_moose(input_hash)
-    # TODO
+    if input_hash.has_key?('duck')
+        input_hash['duck']
+    else
+        return 'moose'
+    end
 end
 
 
@@ -43,7 +51,11 @@ end
 #   wheres_wally({'a'=> 'wally'}) #=> "here!"
 #
 def wheres_wally(input_hash)
-    # TODO
+     if input_hash.has_value?('wally')
+        return 'here!'
+    else
+        return 'not here'
+    end
 end
 
 
@@ -59,7 +71,9 @@ end
 #    #=> nil
 #
 def pretty_print(hash)
-    # TODO
+   hash.each {|key, value| puts "Key #{key} has value #{value}."}
+   puts "There are no more keys."
+   return nil
 end
 
 
@@ -73,9 +87,17 @@ end
 #   order_price({'jaegerbomb'=>1, 'becks'=>2}) #=> 12.5
 #
 def order_price(order)
+    total = 0    
     prices = {'jaegerbomb'=>5.5, 'becks'=>3.5}
-    # TODO
+
+    order.each do |drink,q|
+        if prices.has_key?(drink)
+           total = total + ( prices[drink] * q)       
+        end
+    end
+     return total
 end
+
 
 # count_words returns the words in a sentence
 # along with their frequencies
@@ -85,7 +107,20 @@ end
 #       'been'=> 1, 'which'=>1}
 #
 def count_words(sentence)
-    # TODO
+    
+    h = {}
+    arg = sentence.split
+    arg.each do |word|
+    if h.has_key?(word)
+        # if the letter is already in the hash, increase
+        # its count by 1
+        h[word] += 1
+    else # letter isn't in the hash
+        # so put it in and set the count to 1
+        h[word] = 1
+    end
+end
+return h
 end
 
 
@@ -100,6 +135,7 @@ end
 #
 def tell_story(opts={})
     # TODO put in the defaults if no value provided
+    opts= {'adj1' => 'dark', 'adj2' => 'stormy', 'time_of_day' => 'night'}.merge(opts)
 
     # leave this alone
     story_beginning(opts)
