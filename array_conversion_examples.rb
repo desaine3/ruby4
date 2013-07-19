@@ -22,3 +22,5 @@ keys = h.keys
 values = h.values
 
 # How would you combine keys and values back into h?
+    #zip the two arrays  and hash them. 
+    h = Hash[keys.zip(values)]
