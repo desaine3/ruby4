@@ -27,9 +27,19 @@ end
 #
 def frequencies(text)
     puts "Counting words..."
-    ## TODO write this function
-
-    return {'everyone'=>15, 'code first girls'=>30, 'loves'=>20, 'ruby'=>40}
+     h = {}
+    arg = text.split
+    arg.each do |word|
+    if h.has_key?(word)
+        # if the word is already in the hash, increase
+        # its count by 1
+        h[word] += 1
+    else # word isn't in the hash
+        # so put it in and set the count to 1
+        h[word] = 1
+    end
+end
+return h
 end
 
 
@@ -48,8 +58,10 @@ end
 #
 def remove_stop_words(hash)
     puts "Filtering out common words..."
-    # TODO filter the frequencies based on
-    # the stop_words
+    array = stop_words.split("|")
+    array.each do |word|
+            hash.delete(word)
+    end
     return hash
 end
 
